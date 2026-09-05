@@ -3,7 +3,8 @@ data/
 *.parquet
 # excel source files (data, not code)
 *.xlsx
-# Python
+# environment — contains local paths, never commit
+.env
 __pycache__/
 *.pyc
 .pytest_cache/
