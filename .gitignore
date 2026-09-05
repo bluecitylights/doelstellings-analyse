@@ -1,0 +1,8 @@
+# parquet cache files (generated from xlsx)
+*.parquet
+# excel source files (data, not code)
+*.xlsx
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
