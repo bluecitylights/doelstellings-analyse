@@ -1,4 +1,5 @@
 # parquet cache files (generated from xlsx)
+data/
 *.parquet
 # excel source files (data, not code)
 *.xlsx

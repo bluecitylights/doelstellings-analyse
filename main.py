@@ -4,10 +4,13 @@ from join_parquet import join_data
 
 # ── File paths — adjust to your actual xlsx filenames ─────────────────────────
 # Tuple: (xlsx_path, parquet_path, sheet_name)
+# xlsx files are read from the project root; parquet cache goes into data/
+os.makedirs("data", exist_ok=True)
+
 FILES = {
-    "a": ("data_a.xlsx", "data_a.parquet", "Tabblad1"),
-    "b": ("data_b.xlsx", "data_b.parquet", "Tabblad1"),
-    "c": ("data_c.xlsx", "data_c.parquet", "Tabblad1"),
+    "a": ("data_a.xlsx", "data/data_a.parquet", "Tabblad1"),
+    "b": ("data_b.xlsx", "data/data_b.parquet", "Tabblad1"),
+    "c": ("data_c.xlsx", "data/data_c.parquet", "Tabblad1"),
 }
 
 
