@@ -17,13 +17,13 @@ def join_data(df_a: pd.DataFrame, df_b: pd.DataFrame, df_c: pd.DataFrame) -> pd.
 
     # ── Step 2: Extract ISO year + week from B's date columns ────────────────
     # Adjust 'startdatum' / 'einddatum' to your actual column names in parquet B
-    df_ab["Startdatum aanbieding"] = pd.to_datetime(df_ab["Startdatum aanbieding"], format="%d-%m-%Y", errors="coerce")
-    df_ab["Einddatum aanbieding"]  = pd.to_datetime(df_ab["Einddatum aanbieding"], format="%d-%m-%Y", errors="coerce")
+    df_ab["Startdatum"] = pd.to_datetime(df_ab["Startdatum"], format="%d-%m-%Y", errors="coerce")
+    df_ab["Einddatum"]  = pd.to_datetime(df_ab["Einddatum"], format="%d-%m-%Y", errors="coerce")
 
-    df_ab["start_year"] = df_ab["Startdatum aanbieding"].dt.isocalendar().year.astype("Int64")
-    df_ab["start_week"] = df_ab["Startdatum aanbieding"].dt.isocalendar().week.astype("Int64")
-    df_ab["end_year"]   = df_ab["Einddatum aanbieding"].dt.isocalendar().year.astype("Int64")
-    df_ab["end_week"]   = df_ab["Einddatum aanbieding"].dt.isocalendar().week.astype("Int64")
+    df_ab["start_year"] = df_ab["Startdatum"].dt.isocalendar().year.astype("Int64")
+    df_ab["start_week"] = df_ab["Startdatum"].dt.isocalendar().week.astype("Int64")
+    df_ab["end_year"]   = df_ab["Einddatum"].dt.isocalendar().year.astype("Int64")
+    df_ab["end_week"]   = df_ab["Einddatum"].dt.isocalendar().week.astype("Int64")
 
     # ── Step 3: Join with C on artikelnr + year + week ───────────────────────
     # Uses the start date's year/week as the join key — swap to end_ if needed
